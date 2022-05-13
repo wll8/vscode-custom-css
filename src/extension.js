@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const msg = require("./messages").messages;
 const uuid = require("uuid");
-const fetch = require("node-fetch");
+const fetch = (...args) => import(`node-fetch`).then(({default: fetch}) => fetch(...args))
 const Url = require("url");
 
 function activate(context) {
