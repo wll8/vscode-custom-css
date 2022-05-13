@@ -151,31 +151,34 @@ function activate(context) {
 				<script>
 					{
 						const replaceList = ${JSON.stringify(config.projectNames, null, 2)}
-						let docTitle
+						let checkDom
+						let rawTitle
 						let timer = setInterval(() => {
-							docTitle = document.querySelector("title")
-							if(docTitle) {
+							checkDom = document.querySelector("title")
+							if(checkDom) {
+								rawTitle = rawTitle || checkDom.innerText
 								clearInterval(timer)
-								function changeFn(){
+								function changeFn(...arg){
 										const winTitle = document.querySelector(".monaco-workbench .part.titlebar>.titlebar-container>.window-title") // main window title
 										const dirName = document.querySelector(".monaco-pane-view .split-view-view:first-of-type>.pane>.pane-header h3") // sidebar title
-										replaceList.forEach(([raw, to]) => {
+										replaceList.forEach(([from, to]) => {
 											const suffix = " - Visual Studio Code"
-											const newTile = to + suffix
-											if(raw === "") { // Any item is displayed with the given name
+											const toTile = to + suffix
+											const fromTile = from + suffix
+											if(from === "") { // Any item is displayed with the given name
 												winTitle.innerText =  suffix
 												dirName && (dirName.innerText = to.toUpperCase());
 											} else if( // Match using an open directory or workspace
-												winTitle.innerText.includes(newTile) === false
+												rawTitle.includes(fromTile)
 											) {
-												winTitle.innerText = winTitle.innerText.replace(raw + suffix, newTile)
+												winTitle.innerText = winTitle.innerText.replace(fromTile, toTile)
 												dirName && (dirName.innerText = to.toUpperCase());
 											}
 										})
 								}
 								const observer = new MutationObserver(changeFn)
 								observer.disconnect()
-								observer.observe(docTitle, {
+								observer.observe(checkDom, {
 									attributes: true,
 									childList: true,
 									subtree: true,
