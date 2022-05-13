@@ -1,13 +1,14 @@
 # Custom CSS and JS
 
-- **SPECIAL NOTE**: If Visual Studio Code complains about that it is corrupted, simply click “Don't show again”.**
-- **NOTE**: Every time after Visual Studio Code is updated, please re-enable Custom CSS.**
-- **NOTE**: Every time you change the configuration, please re-enable Custom CSS.**
-### **Starting from extension version 6.0, to be compatible with VSCode 1.58, the CSS/JS files being applied will be inlined into VSCode's workbench.**
+- **SPECIAL NOTE**: If Visual Studio Code complains about that it is corrupted, simply click “Don't show again”.
+- **NOTE**: Every time after Visual Studio Code is updated, please re-enable Custom CSS.
+- **NOTE**: Every time you change the configuration, please re-enable Custom CSS.
+
+Starting from extension version 6.0, to be compatible with VSCode 1.58, the CSS/JS files being applied will be inlined into VSCode's workbench.
 
 Custom CSS to your Visual Studio Code. Based on [robertohuertasm](https://github.com/robertohuertasm)’s [vscode-icons](https://github.com/robertohuertasm/vscode-icons).
 
-![screenshot](https://raw.githubusercontent.com/be5invis/vscode-custom-css/master/screenshot.png)
+![screenshot](https://user-images.githubusercontent.com/28223260/168204402-21bdf217-135b-4e0f-9c39-36b500724123.png)
 
 ## Getting Started
 
@@ -28,7 +29,7 @@ Custom CSS to your Visual Studio Code. Based on [robertohuertasm](https://github
    - `vscode_custom_css.projectNames`, Map virtual project names, example:
       ``` js
       [
-        ["realName", "displayName"]
+        ["mockm", "mm开发"]
       ]
       ```
    - `vscode_custom_css.imports`, Custom CSS/JS files, as an array of URLs, not file paths
@@ -60,9 +61,9 @@ Custom CSS to your Visual Studio Code. Based on [robertohuertasm](https://github
 
 As you know to access the command palette and introduce commands you can use ***F1*** (all OSes), ***Ctrl+Shift+P*** (Windows & Linux) or ***Cmd+Shift+P*** (OS X).
 
-- ***Enable Custom CSS and JS***: It enables custom CSS and JS URLs listed in “`vscode_custom_css.imports`”, an array containing URLs of your custom CSS and JS files, in your user settings.
-- ***Disable Custom CSS and JS***: It will disable custom CSS.
-- ***Reload Custom CSS and JS***: Disable and then re-enable it.
+- **Enable Custom CSS and JS**: It enables custom CSS and JS URLs listed in “`vscode_custom_css.imports`”, an array containing URLs of your custom CSS and JS files, in your user settings.
+- **Disable Custom CSS and JS**: It will disable custom CSS.
+- **Reload Custom CSS and JS**: Disable and then re-enable it.
 
 ## Windows users
 
